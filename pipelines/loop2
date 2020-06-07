@@ -16,8 +16,9 @@ pipeline {
                     MYLIST += "7"
 
                     for (def element = 0; element < MYLIST.size(); element++) {
+                        myvar = "job1" + MYLIST[element]
                         echo  "$MYLIST[element]"
-                        echo "$job1"
+                        echo "$myvar"
                     }
                 }
              }
