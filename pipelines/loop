@@ -19,7 +19,7 @@ pipeline {
                             parameters: [
                                 [
                                     $class: 'StringParameterValue',
-                                    name: 'MYLIST',
+                                    name: 'time',
                                     value: MYLIST[element]
                                 ]
                             ]
