@@ -5,7 +5,7 @@ pipeline {
             agent { docker 'maven:3-alpine' }
             steps {
                 echo 'Hello, Maven'
-                echo $HOSTNAME
+                sh 'echo $HOSTNAME'
                 sh 'mvn --version'
             }
         }
@@ -13,7 +13,7 @@ pipeline {
             agent { docker 'openjdk:8-jre' }
             steps {
                 echo 'Hello, JDK'
-                echo $HOSTNAME
+                sh 'echo $HOSTNAME'
                 sh 'java -version'
             }
         }
