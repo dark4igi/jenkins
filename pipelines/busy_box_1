@@ -9,7 +9,7 @@ pipeline {
         echo 'u exec busy box jox'
         echo "this job wait ${params.time} second & finish"
         sh 'ls -la'
-        sh 'sleep ${params.time}'
+        sh "sleep ${params.time}"
         
       }
     }
