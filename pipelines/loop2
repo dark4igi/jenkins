@@ -20,7 +20,7 @@ pipeline {
                         echo  MYLIST[element]
                         echo "$myvar"
                         build(
-                            job: $myvar )
+                            job: "$myvar" )
                     }
                 }
              }
