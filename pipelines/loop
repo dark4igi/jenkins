@@ -1,0 +1,32 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+    stages {
+        stage("robot test") {
+            steps {
+                script {
+                    MYLIST = []
+                    MYLIST += "13"
+                    MYLIST += "17"
+                    MYLIST += "9"
+                    MYLIST += "21"
+                    MYLIST += "15"
+
+                    for (def element = 0; element < MYLIST.size(); element++) {
+                        build(
+                            job: 'busy_box_1',
+                            parameters: [
+                                [
+                                    $class: 'StringParameterValue',
+                                    name: 'MYLIST',
+                                    value: MYLIST[element]
+                                ]
+                            ]
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
