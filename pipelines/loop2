@@ -1,0 +1,25 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+    stages {
+        stage("robot test1") {
+            steps {
+                script {
+                    MYLIST = []
+                    MYLIST += "1"
+                    MYLIST += "2"
+                    MYLIST += "3"
+                    MYLIST += "4"
+                    MYLIST += "5"
+                    MYLIST += "6"
+                    MYLIST += "7"
+
+                    for (def element = 0; element < MYLIST.size(); element++) {
+                        echo MYLIST[element]
+                    }
+                }
+             }
+          }
+    }
+}
