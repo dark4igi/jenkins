@@ -26,6 +26,27 @@ pipeline {
                         )
                     }
                 }
+                script {
+                    LIST = []
+                    LIST += "18"
+                    LIST += "12"
+                    LIST += "24"
+                    LIST += "4"
+                    LIST += "30"
+
+                    for (def element = 0; element < MYLIST.size(); element++) {
+                        build(
+                            job: 'busy_box_1',
+                            parameters: [
+                                [
+                                    $class: 'StringParameterValue',
+                                    name: 'time',
+                                    value: LIST[element]
+                                ]
+                            ]
+                        )
+                    }
+                }
             }
         }
     }
