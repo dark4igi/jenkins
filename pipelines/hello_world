@@ -8,6 +8,7 @@ pipeline {
       steps {
         echo 'Hello World using Jenkins pipelines from git'
         echo "Hello ${params.PERSON}"
+        sh 'echo "param is ${params.param}"'
         sh 'ls -la'
         
       }
