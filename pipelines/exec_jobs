@@ -10,19 +10,24 @@ agent any
             steps {
                 build job: 'test_job'
             }
-        }   
+        }
         stage ('exec_hello_world_pipeline') {
-           steps { 
-               build job: 'hello_world_pipeline', parameters: 
-               [
-               [$class: 'StringParameterValue', name: 'PERSON', value: 'target']
-               ], wait: true  
-           } 
+           steps {
+               build job: 'hello_world_pipeline', parameters: [[$class: 'StringParameterValue', name: 'PERSON', value: 'target']]
+           }
+        }
+        stage ('exec_busy_box_1') {
+            steps {
+                build job: 'busy_box_1', parameters: [[$class: 'StringParameterValue', name: 'time', value: '21']]
+            }
         }
         stage('End') {
             steps {
                 echo 'Bye'
             }
         }
+    }
+    post {
+      always { cleanWs() }
     }
 }
