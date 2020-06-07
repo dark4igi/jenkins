@@ -18,7 +18,7 @@ agent any
         }
         stage ('exec_busy_box_1') {
             steps {
-               build job: 'busy_box_1', parameters: [[$class: 'StringParameterValue', name: 'time', value: i]]
+               build job: 'busy_box_1', parameters: [[$class: 'StringParameterValue', name: 'time', value: '22']]
             }
         }
         stage('End') {
