@@ -3,7 +3,7 @@
 pipeline {
     agent any
     stages {
-        stage("robot test") {
+        stage("robot test1") {
             steps {
                 script {
                     MYLIST = []
@@ -28,7 +28,7 @@ pipeline {
                 }
              }
           }
-          stage {
+          stage("robot test2") {
               steps{
                   script {
                     LIST = []
