@@ -19,6 +19,8 @@ pipeline {
                         myvar = "$job1" + MYLIST[element]
                         echo  MYLIST[element]
                         echo "$myvar"
+                        build(
+                            job: $myvar )
                     }
                 }
              }
