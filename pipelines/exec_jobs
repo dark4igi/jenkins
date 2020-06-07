@@ -1,0 +1,23 @@
+pipeline {
+agent any
+    stages {
+        stage('Start') {
+            steps {
+                echo 'Hello'
+            }
+        }
+        stage ('exec_first_job') {
+            steps {
+                build job: 'test_job'
+            }
+        }   
+        stage ('exec_hello_world_pipeline') {
+           steps { build job: 'hello_world_pipeline'  } 
+        }
+        stage('End') {
+            steps {
+                echo 'Bye'
+            }
+        }
+    }
+}
