@@ -8,6 +8,7 @@ pipeline {
                 sh 'node --version'
                 sh 'echo $HOSTNAME'
                 sh 'echo $USER'
+                sh 'whoami'
             }
         }
     }
