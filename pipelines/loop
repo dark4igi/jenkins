@@ -26,10 +26,11 @@ pipeline {
                         )
                     }
                 }
+             }
           }
           stage {
               steps{
-                script {
+                  script {
                     LIST = []
                     LIST += "18"
                     LIST += "12"
@@ -49,8 +50,8 @@ pipeline {
                             ]
                         )
                     }
-                }
+                  }
               }
-          }    
+          }
     }
 }
