@@ -12,7 +12,7 @@ agent any
             }
         }   
         stage ('exec_hello_world_pipeline') {
-           steps { build job: 'hello_world_pipeline'  } 
+           steps { build job: 'hello_world_pipeline', parameters: [[$class: 'StringParameterValue', name: 'PERSON', value: target]]  } 
         }
         stage('End') {
             steps {
