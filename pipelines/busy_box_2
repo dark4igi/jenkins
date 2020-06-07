@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  parameters {
+        string(name: 'time', defaultValue: '15', description: 'time to sleep?')
+  }
+  stages {
+    stage ('Build') {
+      steps {
+        echo 'u exec busy box box'
+        echo "this job wait ${params.time} second & finish"
+        sh 'ls -la'
+        sh "sleep ${params.time}"
+
+      }
+    }
+  }
+  post {
+    always { cleanWs() }
+  }
+}
