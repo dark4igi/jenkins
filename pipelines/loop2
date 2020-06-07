@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-
+def job = "busy_box_"
 pipeline {
     agent any
     stages {
@@ -16,7 +16,7 @@ pipeline {
                     MYLIST += "7"
 
                     for (def element = 0; element < MYLIST.size(); element++) {
-                        echo MYLIST[element]
+                        echo $job $MYLIST[element]
                     }
                 }
              }
