@@ -21,6 +21,11 @@ agent any
                build job: 'busy_box_1', parameters: [[$class: 'StringParameterValue', name: 'time', value: '22']]
             }
         }
+        stage('docker test'){
+            steps{
+              sh 'docker -v'
+            }
+        }
         stage('End') {
             steps {
                 echo 'Bye'
