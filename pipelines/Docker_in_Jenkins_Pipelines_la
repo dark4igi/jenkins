@@ -1,0 +1,50 @@
+pipeline{
+    agent {
+        docker {
+            image 'python:alpine'
+            args '-u root'
+        }
+    }
+    stages{
+        stage('install git'){
+            steps {
+                sh 'apk add git'
+            }
+        }
+        stage ('git clone') {
+            steps {
+                git 'https://github.com/linuxacademy/content-pipelines-cje-labs.git'
+            }
+        }
+        stage ('install py requirements') {
+            steps{
+                sh 'pip install -r lab3_lab4/dog_pics_downloader/requirements.txt'
+            }
+        }
+        stage ('exec py') {
+            steps {
+                sh 'python lab3_lab4/dog_pics_downloader/dog_pic_get_class.py'
+            }
+        }
+        stage ('check') {
+            steps {
+                sh 'ls -lh'
+                sh 'ls -lh ..'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'uhu'
+        }
+        success{
+            archiveArtifacts artifacts : '*.jpg'
+        }
+        unsuccessful {
+            echo 'some shit'
+        }
+        cleanup {
+            cleanWs()
+            }
+    }
+}
